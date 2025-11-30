@@ -4,7 +4,14 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
-        "nvim-tree/nvim-web-devicons", -- optional, but recommended}
+        "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    lazy = false -- neo-tree wil lazily load itself
+    lazy = false, -- neo-tree wil lazily load itself
+    opts = {
+        filesystem = {
+          filtered_items = {
+            visible = true,
+          },
+        },
+    },
 }

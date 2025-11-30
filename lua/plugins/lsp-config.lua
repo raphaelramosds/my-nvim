@@ -19,7 +19,8 @@ return {
             require("mason-lspconfig").setup({
                 -- Language Servers
                 ensure_installed = {
-                    "lua_ls" 
+                    "lua_ls",
+                    "ts_ls"
                 }
             })
         end
@@ -27,8 +28,13 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            vim.lsp.config("*", {})
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {}) -- CTRL + K (More lsp buf options in :help vim.lsp.buf)
+            local lspconfig = require("lspconfig")
+            lspconfig.lua_ls.setup({})
+            lspconfig.ts_ls.setup({})
+
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})         -- CTRL + K 
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})   -- CTRL + g + d
+            -- More lsp buf options in :help vim.lsp.buf
         end
     }
 }

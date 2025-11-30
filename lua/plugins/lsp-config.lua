@@ -32,6 +32,16 @@ return {
             lspconfig.lua_ls.setup({})
             lspconfig.ts_ls.setup({})
 
+            vim.diagnostic.config({
+                virtual_text = {
+                    prefix = "",
+                    severity_sort = true,
+                },
+                signs = true,
+                underline = true,
+                update_in_insert = false
+            })
+
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})         -- CTRL + K 
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})   -- CTRL + g + d
             -- More lsp buf options in :help vim.lsp.buf

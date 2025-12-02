@@ -20,7 +20,8 @@ return {
                 -- Language Servers
                 ensure_installed = {
                     "lua_ls",
-                    "ts_ls"
+                    "ts_ls",
+                    "phpactor"
                 }
             })
         end
